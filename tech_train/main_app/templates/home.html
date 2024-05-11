@@ -7,10 +7,11 @@
     <h1 class="title" style="margin-left: 20%;">Businesses</h1>
     <div class="content-container">
         <div class="left-column">
+            <br><br>
             <style>
                 /* CSS styles for the table */
                 .styled-table {
-                    margin-left: 20%;
+                    margin-left: 250px;
                     width: 80%; /* Adjust the width as needed */
                     border-collapse: collapse;
                     border-spacing: 0;
@@ -39,7 +40,7 @@
                 }
             </style>
 
-            <table class="styled-table">
+            <table class="styled-table" id="businessTable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -47,6 +48,7 @@
                         <th>Description</th>
                         <th>Address</th>
                         <th>Phone Number</th>
+                        <th>Category</th> <!-- New column for category -->
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +59,19 @@
                         <td>{{ business.description }}</td>
                         <td>{{ business.address }}</td>
                         <td>{{ business.phone_number }}</td>
+                        <td>
+                            {% if "restaurant" in business.description or "cafe" in business.description or "bakery" in business.description or "food" in business.description or "cuisine" in business.description or "dining" in business.description or "eatery" in business.description or "bistro" in business.description or "tavern" in business.description or "diner" in business.description or "catering" in business.description %}
+                                Food
+                            {% elif "hospital" in business.description or "clinic" in business.description or "medical" in business.description or "healthcare" in business.description or "doctor" in business.description or "physician" in business.description or "wellness" in business.description or "pharmacy" in business.description or "health center" in business.description %}
+                                Medical
+                            {% elif "factory" in business.description or "manufacturing" in business.description or "industry" in business.description or "plant" in business.description or "fabrication" in business.description or "assembly" in business.description or "processing" in business.description or "construction" in business.description %}
+                                Manufacturing
+                            {% elif "technology" in business.description or "software" in business.description or "IT" in business.description or "computer" in business.description or "electronics" in business.description or "programming" in business.description or "innovation" in business.description or "digital" in business.description or "cybersecurity" in business.description %}
+                                Tech
+                            {% else %}
+                                Other
+                            {% endif %}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -64,4 +79,51 @@
         </div>
     </div>
 </div>
+
+<script>
+    function searchTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("businessTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; // index 1 for name column
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function filterTable() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("categoryFilter");
+    filter = input.value.toUpperCase().trim();
+    table = document.getElementById("businessTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[5]; // index 5 for category column
+        if (td) {
+            var category = (td.textContent || td.innerText).trim().toString().toUpperCase();
+            console.log("Category Length:", category.length);
+            console.log("Filter Length:", filter.length);
+            console.log("Category:", category);
+            console.log("Filter:", filter);
+            console.log("Category === Filter:", category === filter);
+            if (filter === "" || category === filter) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+</script>
+
 {% endblock %}

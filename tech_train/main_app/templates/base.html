@@ -190,6 +190,17 @@
             <a href="#" class="active">Home</a>
             <a href="#">Contact Us!</a>
 
+            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for businesses...">
+            <br><br>
+            <select id="categoryFilter" onchange="filterTable()">
+                <option value="">Filter by Category</option>
+                <option value=" Food ">Food</option>
+                <option value=" Medical ">Medical</option>
+                <option value=" Manufacturing ">Manufacturing</option>
+                <option value=" Tech ">Tech</option>
+                <option value=" Other ">Other</option>
+            </select>
+
         </div>
 
         <div class="logo">
