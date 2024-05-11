@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Project{% endblock %}</title>
+
+    <style>
+        .main-content {
+            display: flex;
+
+            justify-content: center;
+        }
+
+        /* Base styles for vertical navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding: 20px;
+            height: 100vh;
+            /* Set height to 100% of viewport height */
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Media query for horizontal navbar on smaller screens */
+        @media only screen and (max-width: 600px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: row;
+
+                height: auto;
+                /* Reset height for horizontal layout */
+            }
+
+            .navbar a {
+                margin: 0;
+                height: auto;
+                /* Reset height for horizontal layout */
+            }
+
+            .main-content {
+                margin-top: 60px;
+            }
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: block;
+        }
+
+        .dropdown a {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 5px 10px 8px 10px #303030;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="navbar" id="navbar">
+            <a href="#" class="active">Home</a>
+            <div class="dropdown">
+                <a href="#">About ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Our Team</a>
+                    <a href="#">Mission</a>
+                    <a href="#">Vision</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Services ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Service 1</a>
+                    <a href="#">Service 2</a>
+                    <a href="#">Service 3</a>
+                </div>
+            </div>
+            <a href="#">Contact</a>
+        </div>
+
+
+        <div class="col-md-10">
+            <!-- Content Area -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    </div>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
