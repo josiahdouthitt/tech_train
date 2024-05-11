@@ -80,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hackathon',
         'USER': 'admin',
-        'PASS': '&^H#*Ug7L357U8',
+        'PASSWORD': '&^H#*Ug7L357U8',
         'HOST': 'hackathondb2.cju8akkes4me.us-east-2.rds.amazonaws.com',
-        'PORT': 3306
+        'PORT': '3306',
     }
 }
 
