@@ -13,6 +13,13 @@
             background-color: aliceblue;
         }
 
+        .logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+
         .main-content {
             display: flex;
             justify-content: center;
@@ -60,7 +67,7 @@
                 margin: 0;
                 height: auto;
                 padding: 5px 25px;
-            border-radius: 25px;
+                border-radius: 25px;
             }
 
             .main-content {
@@ -149,6 +156,10 @@
                 margin-bottom: 20px;
                 /* Add spacing between columns on mobile */
             }
+
+            .logo {
+                visibility: hidden;
+            }
         }
 
         h1 {
@@ -176,6 +187,7 @@
                     <a href="#">Select 1c</a>
                 </div>
             </div>
+
             <div class="dropdown">
                 <a href="#">Category 2 ▼</a>
                 <div class="dropdown-content">
@@ -187,6 +199,10 @@
 
         </div>
 
+        <div class="logo">
+            {% load static %}
+            <img src="{% static 'main_app\LogoPass_1.png' %}" alt="Train Logo">
+        </div>
 
         <div class="col-md-10">
             <!-- Content Area -->
