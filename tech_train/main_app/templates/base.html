@@ -8,9 +8,13 @@
     <title>{% block title %}My Project{% endblock %}</title>
 
     <style>
+        html,
+        body {
+            background-color: aliceblue;
+        }
+
         .main-content {
             display: flex;
-
             justify-content: center;
         }
 
@@ -29,7 +33,8 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 5px 25px;
+            border-radius: 25px;
             margin-bottom: 10px;
         }
 
@@ -38,7 +43,7 @@
         }
 
         /* Media query for horizontal navbar on smaller screens */
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 900px) {
             .navbar {
                 position: fixed;
                 top: 0;
@@ -54,7 +59,8 @@
             .navbar a {
                 margin: 0;
                 height: auto;
-                /* Reset height for horizontal layout */
+                padding: 5px 25px;
+            border-radius: 25px;
             }
 
             .main-content {
@@ -71,6 +77,8 @@
         .dropdown a {
             position: relative;
             display: inline-block;
+            padding: 5px 25px;
+            border-radius: 25px;
         }
 
 
@@ -91,11 +99,64 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #555;
+            background-color: #757575;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+
+        .dual-column-container {
+            display: flex;
+            flex-direction: column;
+            /* Display as column layout */
+            align-items: center;
+            /* Center items horizontally */
+        }
+
+        .title {
+            margin-bottom: 20px;
+            /* Add spacing between title and content */
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            /* Ensure full width */
+            margin-left: 100px;
+            /* Offset to the right */
+        }
+
+        .left-column,
+        .right-column {
+            flex-basis: 48%;
+            /* Adjust width for spacing */
+        }
+
+        @media (max-width: 900px) {
+            .content-container {
+                flex-direction: column;
+                /* Change to column layout for mobile */
+                margin-left: 0;
+                /* Remove offset */
+            }
+
+            .left-column,
+            .right-column {
+                width: 100%;
+                /* Make each column take full width on mobile */
+                margin-bottom: 20px;
+                /* Add spacing between columns on mobile */
+            }
+        }
+
+        h1 {
+            background-color: white;
+            color: #303030;
+            padding: 5px 25px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 8px 5px #303030;
         }
     </style>
 
@@ -106,23 +167,24 @@
     <div class="main-content">
         <div class="navbar" id="navbar">
             <a href="#" class="active">Home</a>
+            <a href="#">Contact Us!</a>
             <div class="dropdown">
-                <a href="#">About ▼</a>
+                <a href="#">Category 1 ▼</a>
                 <div class="dropdown-content">
-                    <a href="#">Our Team</a>
-                    <a href="#">Mission</a>
-                    <a href="#">Vision</a>
+                    <a href="#">Select 1a</a>
+                    <a href="#">Select 1b</a>
+                    <a href="#">Select 1c</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#">Services ▼</a>
+                <a href="#">Category 2 ▼</a>
                 <div class="dropdown-content">
-                    <a href="#">Service 1</a>
-                    <a href="#">Service 2</a>
-                    <a href="#">Service 3</a>
+                    <a href="#">Service 2a</a>
+                    <a href="#">Service 2b</a>
+                    <a href="#">Service 2c</a>
                 </div>
             </div>
-            <a href="#">Contact</a>
+
         </div>
 
 
