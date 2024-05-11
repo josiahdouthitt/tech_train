@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .models import Business  # Import your Business model here
 
 def index(request):
-    return render(request, 'home.html')
+    # Assuming you have a queryset of Business objects
+    businesses = Business.objects.all()  # Or filter as needed
+    return render(request, 'home.html', {'businesses': businesses})
+

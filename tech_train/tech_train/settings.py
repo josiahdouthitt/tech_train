@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'tech_train.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hackathon',
+        'NAME': 'hackathon2',
         'USER': 'admin',
         'PASSWORD': '&^H#*Ug7L357U8',
         'HOST': 'hackathondb2.cju8akkes4me.us-east-2.rds.amazonaws.com',
@@ -121,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
