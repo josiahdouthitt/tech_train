@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'tech_train.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hackathon',
+        'USER': 'admin',
+        'PASSWORD': '&^H#*Ug7L357U8',
+        'HOST': 'hackathondb2.cju8akkes4me.us-east-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
